@@ -6,6 +6,7 @@ namespace RockPaperScissors
 {
   public class Program
   {
+    public static Game game = new Game();
     public static void Main()
     {
       try
@@ -14,7 +15,7 @@ namespace RockPaperScissors
         string name1 = Console.ReadLine();
         Console.WriteLine("Enter Player 2's name:");
         string name2 = Console.ReadLine();
-        Game game = new Game(name1, name2);
+        game.AssignNames(name1, name2);
         Console.WriteLine(game.Player1.Name);
         Console.WriteLine(game.Player2.Name);
 
@@ -44,11 +45,11 @@ namespace RockPaperScissors
     {
       if (result == 1)
       {
-        Console.WriteLine("Player 1 wins");
+        Console.WriteLine($"{game.Player1.Name} wins");
       }
       else if (result == -1)
       {
-        Console.WriteLine("Player 2 wins");
+        Console.WriteLine($"{game.Player2.Name} wins");
       }
       else if (result == 0)
       {

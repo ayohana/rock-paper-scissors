@@ -9,7 +9,7 @@ namespace RockPaperScissors.Models
     public Player Player2 { get; set; }
     public string[] SignsArr { get; set; }
 
-    public Game(string name1, string name2)
+    public void AssignNames(string name1, string name2)
     {
       Player1 = new Player(name1);
       Player2 = new Player(name2);
@@ -47,7 +47,7 @@ namespace RockPaperScissors.Models
       }
     }
 
-    
+  
     // public string CheckWinner()
     // {
     //   if (Player1Sign == "rock")
