@@ -6,10 +6,12 @@ namespace RockPaperScissors.Models
   {
     public string Name { get; set; }
     public string Sign { get; set; }
+    public int Score { get; set; }
 
     public Player(string name)
     {
       Name = name;
+      Score = 0;
     }
   }
 }

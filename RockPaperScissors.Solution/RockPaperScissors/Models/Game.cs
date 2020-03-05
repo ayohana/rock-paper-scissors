@@ -35,10 +35,12 @@ namespace RockPaperScissors.Models
       }
       else if (SignsArr.Contains("rockpaper") || SignsArr.Contains("paperscissors") || SignsArr.Contains("scissorsrock"))
       {
+        Player2.Score++;
         return -1;
       }
       else if (SignsArr.Contains("scissorspaper") || SignsArr.Contains("paperrock") || SignsArr.Contains("rockscissor"))
       {
+        Player1.Score++;
         return 1;
       }
       else
@@ -47,7 +49,7 @@ namespace RockPaperScissors.Models
       }
     }
 
-  
+    // Code prior to refactoring:
     // public string CheckWinner()
     // {
     //   if (Player1Sign == "rock")
