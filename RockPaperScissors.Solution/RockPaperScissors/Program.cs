@@ -6,7 +6,9 @@ namespace RockPaperScissors
 {
   public class Program
   {
-    public static Game game = new Game();
+    public static Game NewGame = new Game();
+    public static bool GameOver = false;
+    public static int Rounds = 1;
     public static void Main()
     {
       try
@@ -15,21 +17,24 @@ namespace RockPaperScissors
         string name1 = Console.ReadLine();
         Console.WriteLine("Enter Player 2's name:");
         string name2 = Console.ReadLine();
-        game.AssignNames(name1, name2);
-        Console.WriteLine(game.Player1.Name);
-        Console.WriteLine(game.Player2.Name);
+        NewGame.AssignNames(name1, name2);
+        Console.WriteLine(NewGame.Player1.Name);
+        Console.WriteLine(NewGame.Player2.Name);
+        while (!GameOver)
+        {
+          Console.WriteLine("Enter player 1's sign:");
+          string input1 = Console.ReadLine().ToLower();
+          Console.WriteLine("Enter player 2's sign:");
+          string input2 = Console.ReadLine().ToLower();
+          NewGame.AssignSigns(input1, input2);
 
-        Console.WriteLine("Enter player 1's sign:");
-        string input1 = Console.ReadLine().ToLower();
-        Console.WriteLine("Enter player 2's sign:");
-        string input2 = Console.ReadLine().ToLower();
-        game.AssignSigns(input1, input2);
+          Console.WriteLine(NewGame.Player1.Sign);
+          Console.WriteLine(NewGame.Player2.Sign);
 
-        Console.WriteLine(game.Player1.Sign);
-        Console.WriteLine(game.Player2.Sign);
-
-        int result = game.CheckResult();
-        AnnounceWinner(result);
+          int result = NewGame.CheckResult();
+          AnnounceWinner(result);
+          CheckGameOver();
+        }
       }
       catch (Exception ex)
       {
@@ -45,11 +50,11 @@ namespace RockPaperScissors
     {
       if (result == 1)
       {
-        Console.WriteLine($"{game.Player1.Name} wins");
+        Console.WriteLine($"{NewGame.Player1.Name} wins");
       }
       else if (result == -1)
       {
-        Console.WriteLine($"{game.Player2.Name} wins");
+        Console.WriteLine($"{NewGame.Player2.Name} wins");
       }
       else if (result == 0)
       {
@@ -58,6 +63,18 @@ namespace RockPaperScissors
       else
       {
         Console.WriteLine("Invalid Input. Please enter again.");
+      }
+    }
+    public static void CheckGameOver()
+    {
+      Rounds++;
+      if (Rounds > 3)
+      { 
+        GameOver = true;
+      }
+      else
+      {
+        GameOver = false;
       }
     }
   }
