@@ -26,10 +26,10 @@
 * Download [.NET Core](https://dotnet.microsoft.com/download/dotnet-core/)
 * Clone this [repository](https://github.com/ayohana/anagram.git/)
 * Open the `Command Line Interface`.
-  * Navigate into the `Anagram` directory.
+  * Navigate into the `RockPaperScissors` directory.
     * Type in the command `dotnet restore` to gather tools and dependencies for the application.
     * Type in the command `dotnet run` to run the application.
-  * Navigate into the `Anagram.Tests` directory.
+  * Navigate into the `RockPaperScissors.Tests` directory.
     * Type in the command `dotnet restore` to gather tools and dependencies for the tests.
     * Type in the command `dotnet test` to run the tests. 
 
